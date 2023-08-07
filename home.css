@@ -1,0 +1,82 @@
+
+
+
+
+
+
+/* Kонтейнера на снимките и текста */
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap; /* Позволява подреждането на снимките по две в редица */
+  justify-content: center; /* Центрира елементите по хоризонтала */
+  align-items: center; /* Центрира елементите по вертикалата */
+}
+
+.gallery-item {
+  margin: 10px; /* Разстояние между снимките */
+  text-align: center; /* Центрира текста по хоризонтала */
+}
+
+.gallery-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+.gallery-item p {
+  font-family: Arial, sans-serif; /* Шрифт Arial */
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 5px; /* Разстояние между снимката и текста */
+}
+
+
+
+
+
+
+
+/* Замъгляване и форма */
+.image-link {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+.image-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10%;
+}
+
+
+.image-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Прозрачен замъглен фон */
+  opacity: 0; /* Начална стойност на прозрачността - невидим */
+  transition: opacity 0.3s ease; /* Плавна транзиция на прозрачността */
+  border-radius: 10%;
+}
+
+
+.image-link span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  opacity: 0; /* Начална стойност на прозрачността - невидим */
+  transition: opacity 0.3s ease; /* Плавна транзиция на прозрачността */
+}
+
+
+.image-link:hover::before,
+.image-link:hover span {
+  opacity: 1;
+}
